@@ -9,6 +9,11 @@ Welcome to **UbuntuBoost** – your all-in-one solution to optimize, secure, and
 - **Security Enhancements**: Strengthen your system's security by configuring firewalls, updating software, and more.
 - **System Cleaning**: Clean old kernels and unnecessary files to free up space.
 - **Custom Configuration**: Easily configure swap space, cache settings, and more.
+- **Interactive GUI Modes**: Choose between Fun Mode for beginners and Advanced Developer Mode for experienced users.
+- **Fun Mode**: Learn about system optimization through educational slides, interactive quizzes, and gamification features.
+- **Developer Mode**: Unlock advanced features like full script execution, terminal integration, and real-time debugging.
+- **Built-in Game**: Play as Ubuntu, the Jedi Soldier, and defend your system against zombies in a fun, integrated game.
+- **Cross-Platform Support**: Works on Windows, macOS, and Linux with full functionality across all platforms.
 
 ## Installation
 
@@ -51,11 +56,30 @@ You'll be prompted with a menu where you can choose the following options:
 6. **Configure Swap Space**: Set up and optimize swap space.
 7. **Clean System**: Clean up unnecessary files.
 8. **Full Optimization**: Run all tasks in sequence for a full system optimization.
-9. **Exit**: Exit the tool.
+9. **Enter Fun Mode**: Explore system optimization through interactive slides, games, and quizzes.
+10. **Enter Developer Mode**: Access advanced features like script execution, real-time debugging, and terminal integration.
+11. **Exit**: Exit the tool.
 
-### Sonic Pi & Other Programs
+### Fun Mode
 
-You can also initialize Sonic Pi and other programs using the same interface. Simply follow the prompts after selecting the appropriate option from the menu.
+In Fun Mode, you can explore UbuntuBoost in a gamified, user-friendly environment. This mode is perfect for beginners who want to learn about system optimization without diving into technical details. Features include:
+
+- **Educational Slides**: Learn about system performance, security, and more through interactive content.
+- **Quizzes and Mini-Games**: Test your knowledge and earn rewards as you progress through the content.
+- **Simplified Interface**: No technical knowledge required—just point and click!
+
+### Developer Mode
+
+Advanced users can unlock the full potential of UbuntuBoost in Developer Mode. This mode provides:
+
+- **Script Execution**: Run complex Python scripts directly within the GUI.
+- **Terminal Integration**: Execute commands and scripts with full terminal support and capture the output directly in the GUI.
+- **Real-Time Debugging**: Advanced error logging, retry mechanisms, and alternative methods for handling failures.
+- **Cross-Platform Development**: Test and develop scripts across multiple operating systems in the same environment.
+
+### Built-in Game: Ubuntu vs. Zombies
+
+Play as Ubuntu, the Jedi Soldier, and protect your system from waves of zombies! Use the Boost laser gun to eliminate enemies, gain experience, and level up. Survive as long as you can to keep your system safe!
 
 ## Credits
 
