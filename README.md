@@ -1,5 +1,10 @@
 # UbuntuBoost
 
+## Screenshot
+![UbuntuBoost Screenshot](screen.png)
+
+## Introduction
+
 Welcome to **UbuntuBoost** – your all-in-one solution to optimize, secure, and maintain your Ubuntu system. Developed by [Kevin Marville](https://github.com/kvnbbg), this tool is designed to make your Ubuntu experience smoother, faster, and more secure.
 
 ## Features
@@ -18,12 +23,14 @@ Welcome to **UbuntuBoost** – your all-in-one solution to optimize, secure, and
 ## Installation
 
 1. **Clone the repository**:
+
    ```bash
    git clone https://github.com/kvnbbg/UbuntuBoost.git
    cd UbuntuBoost
    ```
 
 2. **Install the required dependencies**:
+
    ```bash
    sudo apt-get update
    sudo apt-get install -y python3 python3-pip
