@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UbuntuBoost - Optimize Your System</title>
+  <link rel="icon" href="/favicon.png" type="image/png">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+
+    <style>
+        /* Basic Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* Body Styling */
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f7f7f7;
+            color: #333;
+            line-height: 1.6;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        /* Header Styling */
+        header {
+            background: linear-gradient(90deg, #4CAF50, #2E7D32);
+            padding: 20px;
+            color: white;
+            text-align: center;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        header h1 {
+            font-size: 2.5rem;
+        }
+
+        header p {
+            font-size: 1.2rem;
+            margin-top: 10px;
+        }
+
+        /* Main Content Styling */
+        main {
+            flex: 1;
+            padding: 40px 20px;
+            max-width: 800px;
+            margin: 0 auto;
+            background-color: #fff;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+        }
+
+        h2 {
+            color: #2E7D32;
+            font-size: 2rem;
+            margin-bottom: 15px;
+            position: relative;
+        }
+
+        h2::after {
+            content: '';
+            position: absolute;
+            width: 60px;
+            height: 4px;
+            background-color: #4CAF50;
+            bottom: -10px;
+            left: 0;
+        }
+
+        p {
+            margin-bottom: 20px;
+            font-size: 1rem;
+        }
+
+        ul {
+            list-style: disc inside;
+            margin-bottom: 20px;
+        }
+
+        /* Button Styling */
+        .button {
+            display: inline-block;
+            padding: 10px 20px;
+            font-size: 16px;
+            color: white;
+            background-color: #4CAF50;
+            border-radius: 5px;
+            text-align: center;
+            text-decoration: none;
+            transition: background-color 0.3s, transform 0.3s;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+            margin: 5px;
+        }
+
+        .button:hover {
+            background-color: #388E3C;
+            transform: translateY(-2px);
+        }
+
+        /* Footer Styling */
+        footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 15px 0;
+        }
+
+        footer p {
+            margin: 5px 0;
+        }
+
+        footer a {
+            color: #4CAF50;
+            text-decoration: none;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+        }
+
+        /* Language Switch Styling */
+        .lang-switch {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .lang-switch button {
+            background-color: #2E7D32;
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            margin: 0 10px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s, transform 0.3s;
+        }
+
+        .lang-switch button:hover {
+            background-color: #4CAF50;
+            transform: translateY(-2px);
+        }
+
+        /* Responsive Adjustments */
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 2rem;
+            }
+
+            main {
+                padding: 20px;
+            }
+
+            .button {
+                font-size: 14px;
+                padding: 8px 16px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>UbuntuBoost</h1>
+        <p id="sub-title">Optimize Your System - Optimisez Votre Système</p>
+    </header>
+    <main>
+        <section id="introduction">
+            <h2 id="intro-title">Welcome to UbuntuBoost</h2>
+            <p id="intro-text">
+                UbuntuBoost is your go-to solution for optimizing, securing, and maintaining your Ubuntu system. 
+                It’s designed to make your system run faster, smoother, and more securely.
+            </p>
+        </section>
+
+        <section id="features">
+            <h2 id="features-title">Features - Fonctionnalités</h2>
+            <p id="features-text">
+                With UbuntuBoost, you can:
+            </p>
+            <ul id="features-list">
+                <li>Update and upgrade your system - Mettre à jour et améliorer votre système</li>
+                <li>Clean old files and kernels - Nettoyer les anciens fichiers et noyaux</li>
+                <li>Optimize CPU and memory settings - Optimiser les paramètres CPU et mémoire</li>
+                <li>Enhance system security - Améliorer la sécurité du système</li>
+                <li>Configure swap and cache settings - Configurer les paramètres de swap et de cache</li>
+            </ul>
+        </section>
+
+        <section id="get-started">
+            <h2 id="get-started-title">Get Started - Commencer</h2>
+            <p id="get-started-text">
+                Ready to boost your Ubuntu system? Click the button below to start optimizing.
+            </p>
+            <a href="#" class="button" id="optimize-button">Start Optimizing - Commencer l'optimisation</a>
+        </section>
+
+        <section id="credits">
+            <h2 id="credits-title">Credits</h2>
+            <p id="credits-text">
+                Developed by Kevin Marville.
+            </p>
+            <p>
+                <a href="https://github.com/kvnbbg" target="_blank" class="button">GitHub</a>
+                <a href="https://kvnbbg.fr" target="_blank" class="button">Blog</a>
+                <a href="https://kvnbbg-creations.io" target="_blank" class="button">Portfolio</a>
+                <a href="https://www.instagram.com/techandstream/" target="_blank" class="button">Instagram</a>
+                <a href="https://linkedin.com/in/kevin-marville" target="_blank" class="button">LinkedIn</a>
+            </p>
+        </section>
+
+        <div class="lang-switch">
+            <button onclick="switchLanguage('en')">English</button>
+            <button onclick="switchLanguage('fr')">Français</button>
+        </div>
+    </main>
+    <footer>
+        <p>&copy; 2024 UbuntuBoost</p>
+        <p id="contact-info">Contact: <a href="mailto:contact@kvnbbg.fr">contact@kvnbbg.fr</a></p>
+    </footer>
+
+    <script>
+        // Translation Data
+        const translations = {
+            en: {
+                title: "UbuntuBoost",
+                subTitle: "Optimize Your System",
+                introTitle: "Welcome to UbuntuBoost",
+                introText: "UbuntuBoost is your go-to solution for optimizing, securing, and maintaining your Ubuntu system. It’s designed to make your system run faster, smoother, and more securely.",
+                featuresTitle: "Features",
+                featuresText: "With UbuntuBoost, you can:",
+                featuresList: [
+                    "Update and upgrade your system",
+                    "Clean old files and kernels",
+                    "Optimize CPU and memory settings",
+                    "Enhance system security",
+                    "Configure swap and cache settings"
+                ],
+                getStartedTitle: "Get Started",
+                getStartedText: "Ready to boost your Ubuntu system? Click the button below to start optimizing.",
+                optimizeButton: "Start Optimizing",
+                creditsTitle: "Credits",
+                creditsText: "Developed by Kevin Marville."
+            },
+            fr: {
+                title: "UbuntuBoost",
+                subTitle: "Optimisez Votre Système",
+                introTitle: "Bienvenue sur UbuntuBoost",
+                introText: "UbuntuBoost est votre solution idéale pour optimiser, sécuriser et entretenir votre système Ubuntu. Il est conçu pour rendre votre système plus rapide, plus fluide et plus sécurisé.",
+                featuresTitle: "Fonctionnalités",
+                featuresText: "Avec UbuntuBoost, vous pouvez :",
+                featuresList: [
+                    "Mettre à jour et améliorer votre système",
+                    "Nettoyer les anciens fichiers et noyaux",
+                    "Optimiser les paramètres CPU et mémoire",
+                    "Améliorer la sécurité du système",
+                    "Configurer les paramètres de swap et de cache"
+                ],
+                getStartedTitle: "Commencer",
+                getStartedText: "Prêt à booster votre système Ubuntu ? Cliquez sur le bouton ci-dessous pour commencer l'optimisation.",
+                optimizeButton: "Commencer l'optimisation",
+                creditsTitle: "Crédits",
+                creditsText: "Développé par Kevin Marville."
+            }
+        };
+
+        function switchLanguage(lang) {
+            document.getElementById('sub-title').textContent = translations[lang].subTitle;
+            document.getElementById('intro-title').textContent = translations[lang].introTitle;
+            document.getElementById('intro-text').textContent = translations[lang].introText;
+            document.getElementById('features-title').textContent = translations[lang].featuresTitle;
+            document.getElementById('features-text').textContent = translations[lang].featuresText;
+
+            const featuresList = document.getElementById('features-list');
+            featuresList.innerHTML = "";
+            translations[lang].featuresList.forEach(item => {
+                const li = document.createElement('li');
+                li.textContent = item;
+                featuresList.appendChild(li);
+            });
+
+            document.getElementById('get-started-title').textContent = translations[lang].getStartedTitle;
+            document.getElementById('get-started-text').textContent = translations[lang].getStartedText;
+            document.getElementById('optimize-button').textContent = translations[lang].optimizeButton;
+            document.getElementById('credits-title').textContent = translations[lang].creditsTitle;
+            document.getElementById('credits-text').textContent = translations[lang].creditsText;
+        }
+
+        // Initialize with English
+        switchLanguage('en');
+    </script>
+</body>
+</html>
