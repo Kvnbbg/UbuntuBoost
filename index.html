@@ -4,23 +4,17 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>UbuntuBoost - Optimize Your System</title>
-  <link rel="icon" href="/favicon.ico" type="image/ico">
-<link rel="apple-touch-icon" href="/apple-touch-icon.png">
-
+    <link rel="icon" href="/favicon.ico" type="image/ico">
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+    
+    <!-- Tailwind CSS for modern, responsive design -->
+    <script src="https://cdn.tailwindcss.com"></script>
     <style>
-        /* Basic Reset */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
         /* Body Styling */
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             background-color: #f7f7f7;
             color: #333;
-            line-height: 1.6;
             display: flex;
             flex-direction: column;
             min-height: 100vh;
@@ -36,11 +30,11 @@
         }
 
         header h1 {
-            font-size: 2.5rem;
+            font-size: 3rem;
         }
 
         header p {
-            font-size: 1.2rem;
+            font-size: 1.3rem;
             margin-top: 10px;
         }
 
@@ -48,7 +42,7 @@
         main {
             flex: 1;
             padding: 40px 20px;
-            max-width: 800px;
+            max-width: 900px;
             margin: 0 auto;
             background-color: #fff;
             box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
@@ -75,6 +69,7 @@
         p {
             margin-bottom: 20px;
             font-size: 1rem;
+            line-height: 1.7;
         }
 
         ul {
@@ -123,32 +118,17 @@
             text-decoration: underline;
         }
 
-        /* Language Switch Styling */
-        .lang-switch {
-            text-align: center;
-            margin-top: 20px;
-        }
-
-        .lang-switch button {
-            background-color: #2E7D32;
-            color: white;
-            border: none;
-            padding: 10px 15px;
-            margin: 0 10px;
-            border-radius: 5px;
-            cursor: pointer;
-            transition: background-color 0.3s, transform 0.3s;
-        }
-
-        .lang-switch button:hover {
-            background-color: #4CAF50;
-            transform: translateY(-2px);
+        /* Animation for Feature List */
+        ul li {
+            opacity: 0;
+            transform: translateY(10px);
+            transition: opacity 0.5s ease-out, transform 0.5s ease-out;
         }
 
         /* Responsive Adjustments */
         @media (max-width: 768px) {
             header h1 {
-                font-size: 2rem;
+                font-size: 2.5rem;
             }
 
             main {
@@ -167,155 +147,53 @@
         <h1>UbuntuBoost</h1>
         <p id="sub-title">Optimize Your System - Optimisez Votre Système</p>
     </header>
+
     <main>
-<nav style="background-color: #333; padding: 15px; display: flex; justify-content: space-between; align-items: center;">
+        <!-- Introduction Section -->
+        <section id="introduction">
+            <h2 id="intro-title">Welcome to UbuntuBoost - Bienvenue sur UbuntuBoost</h2>
+            <p id="intro-text">
+                UbuntuBoost is your ultimate tool for optimizing, securing, and maintaining your Ubuntu system. It’s designed to make your system run faster, smoother, and more securely. 
+                <em>UbuntuBoost est votre outil incontournable pour optimiser, sécuriser et maintenir votre système Ubuntu. Il est conçu pour rendre votre système plus rapide, plus fluide et plus sécurisé.</em>
+            </p>
+        </section>
 
-    <!-- Language Switch Section -->
-    <div class="lang-switch" style="display: flex; gap: 10px;">
-        <button onclick="switchLanguage('en')" style="background-color: #4CAF50; color: white; border: none; padding: 8px 15px; border-radius: 5px; cursor: pointer; transition: background-color 0.3s;">English</button>
-        <button onclick="switchLanguage('fr')" style="background-color: #4CAF50; color: white; border: none; padding: 8px 15px; border-radius: 5px; cursor: pointer; transition: background-color 0.3s;">Français</button>
-    </div>
-</nav>
-
- <section id="introduction">
-    <h2 id="intro-title">Welcome to UbuntuBoost - Bienvenue sur UbuntuBoost</h2>
-    <p id="intro-text">
-        UbuntuBoost is your go-to solution for optimizing, securing, and maintaining your Ubuntu system. 
-        It’s designed to make your system run faster, smoother, and more securely.
-        <em>UbuntuBoost est votre solution incontournable pour optimiser, sécuriser et maintenir votre système Ubuntu. Il est conçu pour rendre votre système plus rapide, plus fluide et plus sécurisé.</em>
-    </p>
-    <p id="ubuntu-meaning">
-        Did you know? The word "Ubuntu" originates from the Nguni Bantu languages in Southern Africa, meaning "humanity towards others" 🌍.
-        It reflects the idea that "I am because we are" – a powerful reminder of interconnectedness, collaboration, and mutual support 🤝.
-        <em>Le saviez-vous ? Le mot "Ubuntu" provient des langues bantoues Nguni d'Afrique australe, signifiant "l'humanité envers les autres" 🌍. 
-        Il reflète l'idée que "Je suis parce que nous sommes" – un puissant rappel de l'interconnexion, de la collaboration et du soutien mutuel 🤝.</em>
-    </p>
-    <blockquote id="bill-gates-quote">
-        "I see Africa as a rich source of human capital, talent, and innovation." – Bill Gates 
-        <em>"Je vois l'Afrique comme une source riche en capital humain, talent et innovation." – Bill Gates</em>
-    </blockquote>
-    <p id="africa-fun-fact">
-        Fun Fact: Africa is home to some of the world's largest diamond mines 💎! Over 60% of the world’s diamonds come from African nations,
-        making it a treasure trove of natural resources.
-        <em>Fait amusant : L'Afrique abrite certaines des plus grandes mines de diamants du monde 💎 ! Plus de 60 % des diamants mondiaux proviennent 
-        des pays africains, en faisant un véritable trésor de ressources naturelles.</em>
-    </p>
-    <p id="mac-support">
-        Not just for Ubuntu! MacBoost offers the same powerful optimization for macOS 🍏, ensuring your MacBook stays fast, secure, and optimized for any task, 
-        from daily use to resource-heavy applications like gaming 🎮. Whether you're on Ubuntu or macOS, we’ve got you covered without compromising system stability.
-        <em>Pas seulement pour Ubuntu ! MacBoost offre la même puissante optimisation pour macOS 🍏, garantissant que votre MacBook reste rapide, sécurisé et optimisé 
-        pour toutes les tâches, qu'il s'agisse de l'utilisation quotidienne ou des applications gourmandes en ressources comme les jeux 🎮. Que vous soyez sur Ubuntu ou macOS, nous vous couvrons sans compromettre la stabilité du système.</em>
-    </p>
-</section>
-
-<section id="features">
-    <h2 id="features-title">Features - Fonctionnalités</h2>
-    <p id="features-text">
-        With UbuntuBoost, you can:
-        <em>Avec UbuntuBoost, vous pouvez :</em>
-    </p>
-    <ul id="features-list">
-        <li>Update and upgrade your system - <em>Mettre à jour et améliorer votre système</em></li>
-        <li>Clean old files and kernels - <em>Nettoyer les anciens fichiers et noyaux</em></li>
-        <li>Optimize CPU and memory settings - <em>Optimiser les paramètres CPU et mémoire</em></li>
-        <li>Enhance system security - <em>Améliorer la sécurité du système</em></li>
-        <li>Configure swap and cache settings - <em>Configurer les paramètres de swap et de cache</em></li>
-        <li>Interactive GUI with Fun Mode and Developer Mode - <em>Interface graphique interactive avec mode Fun et mode Développeur</em></li>
-        <li>Fun Mode with educational slides and gamification - <em>Mode Fun avec diapositives éducatives et gamification</em></li>
-        <li>Developer Mode with advanced script execution - <em>Mode Développeur avec exécution de scripts avancée</em></li>
-        <li>Retry logic and error handling for robust performance - <em>Logique de réessai et gestion des erreurs pour une performance robuste</em></li>
-        <li>Cross-platform support for Windows, macOS, and Linux - <em>Support multiplateforme pour Windows, macOS et Linux</em></li>
-        <li>Built-in game featuring Ubuntu, the Jedi Soldier, fighting zombies - <em>Jeu intégré mettant en scène Ubuntu, le Soldat Jedi, combattant des zombies</em></li>
-        <li>Real-time terminal output in the GUI - <em>Sortie de terminal en temps réel dans l'interface graphique</em></li>
-        <li>System optimization with mathematical logic for error prevention - <em>Optimisation du système avec logique mathématique pour la prévention des erreurs</em></li>
-    </ul>
-</section>
-<!--
-<!-- New Game Section -->
-<section id="game">
-    <h2 id="game-title">Play UbuntuBoost: Battle Against the Zombies</h2>
-    <p id="game-text">
-        Step into the shoes of Ubuntu, the Jedi Soldier, and defend your system against waves of zombies in this thrilling built-in game. Use your Boost laser gun to eliminate the zombies and their stronger evolved form, the Unbun. Gain experience, level up, and keep your system safe!
-    </p>
-    <ul id="game-features">
-        <li>Character: <strong>Ubuntu, the Jedi Soldier</strong></li>
-        <li>Weapon: <strong>Boost</strong> - A powerful laser gun</li>
-        <li>Enemies: 
-            <ul>
-                <li><strong>Zombies</strong> - Standard enemies</li>
-                <li><strong>Unbun</strong> - Stronger evolved zombies</li>
+        <!-- Features Section -->
+        <section id="features">
+            <h2 id="features-title">Features - Fonctionnalités</h2>
+            <p id="features-text">With UbuntuBoost, you can:</p>
+            <ul id="features-list">
+                <li>Update and upgrade your system - <em>Mettre à jour et améliorer votre système</em></li>
+                <li>Optimize CPU and memory settings - <em>Optimiser les paramètres CPU et mémoire</em></li>
+                <li>Enhance system security - <em>Améliorer la sécurité du système</em></li>
+                <li>Configure swap and cache settings - <em>Configurer les paramètres de swap et de cache</em></li>
+                <li>Interactive GUI for optimization - <em>Interface graphique interactive pour l'optimisation</em></li>
             </ul>
-        </li>
-        <li>Gameplay: 
-            <ul>
-                <li>Move around to avoid zombie attacks</li>
-                <li>Shoot with Boost to eliminate enemies</li>
-                <li>Gain experience to level up and increase your power</li>
-                <li>Survive as long as you can to protect your system</li>
-            </ul>
-        </li>
-    </ul>
-    <a href="ubuntu_boost_game.html" class="button" id="play-game-button">Play Now - Jouer Maintenant</a>
-</section>
+        </section>
 
-<!-- New Mode Section -->
-<section id="modes">
-    <h2 id="modes-title">Choose Your Mode</h2>
-    <div id="fun-mode" class="mode-section">
-        <h3>Fun Mode - Mode Fun</h3>
-        <p>
-            Designed for beginners and casual users, Fun Mode provides an interactive and educational experience.
-            <ul>
-                <li><strong>Educational Slides</strong>: Learn about system optimization, security, and more through interactive slides.</li>
-                <li><strong>Gamification</strong>: Earn rewards, points, and unlock achievements as you progress through the content.</li>
-                <li><strong>No Technical Knowledge Required</strong>: Fun Mode guides you through the essentials without requiring any programming or command-line skills.</li>
-                <li><strong>Simplified Interface</strong>: Easy-to-navigate UI, with all features accessible through clicks and taps.</li>
-                <li><strong>Engaging Content</strong>: Explore the features of UbuntuBoost with interactive quizzes, animations, and mini-games.</li>
-            </ul>
-        </p>
-        <a href="fun_mode.html" class="button" id="fun-mode-button">Explore Fun Mode - Explorer le Mode Fun</a>
-    </div>
-    
-    <div id="developer-mode" class="mode-section">
-        <h3>Advanced Developer Mode - Mode Développeur Avancé</h3>
-        <p>
-            For experienced users and developers, Advanced Developer Mode unlocks the full potential of UbuntuBoost.
-            <ul>
-                <li><strong>Full Script Execution</strong>: Run complex Python scripts directly within the GUI, with real-time output and error handling.</li>
-                <li><strong>Terminal Integration</strong>: Execute commands and scripts with full terminal integration, capturing output directly in the interface.</li>
-                <li><strong>Custom Scripting</strong>: Write and run custom scripts, with support for virtual environments and package management.</li>
-                <li><strong>Real-Time Debugging</strong>: Advanced error logging, retry mechanisms, and alternative methods to handle execution failures.</li>
-                <li><strong>Cross-Platform Flexibility</strong>: Develop and test your scripts across multiple operating systems (Windows, macOS, Linux) within the same environment.</li>
-            </ul>
-        </p>
-        <a href="developer_mode.html" class="button" id="developer-mode-button">Enter Developer Mode - Entrer en Mode Développeur</a>
-    </div>
-</section>
--->
-
+        <!-- Get Started Section -->
         <section id="get-started">
             <h2 id="get-started-title">Get Started - Commencer</h2>
             <p id="get-started-text">
-                Ready to boost your Ubuntu system? Click the button below to start optimizing.
+                Ready to optimize your Ubuntu system? Click below to start the journey!
             </p>
             <a href="simulator.html" target="_blank" class="button" id="optimize-button">
-        Start Optimizing - Commencer l'optimisation
-    </a>
+                Start Optimizing - Commencer l'optimisation
+            </a>
         </section>
-    <!-- Credits Section -->
-    <section id="credits" style="color: white;">
-        <h2 id="credits-title" style="font-size: 1.5rem; margin-bottom: 10px; color: #4CAF50;">Credits</h2>
-        <p id="credits-text" style="margin-bottom: 10px;">Developed by Kevin Marville.</p>
-        <p style="display: flex; gap: 10px; flex-wrap: wrap;">
-            <a href="https://github.com/kvnbbg" target="_blank" class="button" style="background-color: #4CAF50; color: white; padding: 8px 15px; border-radius: 5px; text-decoration: none; font-size: 1rem; transition: background-color 0.3s;">GitHub</a>
-            <a href="https://kvnbbg.fr" target="_blank" class="button" style="background-color: #4CAF50; color: white; padding: 8px 15px; border-radius: 5px; text-decoration: none; font-size: 1rem; transition: background-color 0.3s;">Blog</a>
-            <a href="https://kvnbbg-creations.io" target="_blank" class="button" style="background-color: #4CAF50; color: white; padding: 8px 15px; border-radius: 5px; text-decoration: none; font-size: 1rem; transition: background-color 0.3s;">Portfolio</a>
-            <a href="https://www.instagram.com/techandstream/" target="_blank" class="button" style="background-color: #4CAF50; color: white; padding: 8px 15px; border-radius: 5px; text-decoration: none; font-size: 1rem; transition: background-color 0.3s;">Instagram</a>
-            <a href="https://linkedin.com/in/kevin-marville" target="_blank" class="button" style="background-color: #4CAF50; color: white; padding: 8px 15px; border-radius: 5px; text-decoration: none; font-size: 1rem; transition: background-color 0.3s;">LinkedIn</a>
-        </p>
-    </section>
 
+        <!-- Credits Section -->
+        <section id="credits">
+            <h2 id="credits-title">Credits</h2>
+            <p id="credits-text">Developed by Kevin Marville.</p>
+            <p>
+                <a href="https://github.com/kvnbbg" target="_blank" class="button">GitHub</a>
+                <a href="https://kvnbbg.fr" target="_blank" class="button">Blog</a>
+                <a href="https://linkedin.com/in/kevin-marville" target="_blank" class="button">LinkedIn</a>
+            </p>
+        </section>
     </main>
+
     <footer>
         <p>&copy; 2024 UbuntuBoost</p>
         <p id="contact-info">Contact: <a href="mailto:contact@kvnbbg.fr">contact@kvnbbg.fr</a></p>
@@ -325,47 +203,46 @@
         // Translation Data
         const translations = {
             en: {
-                title: "UbuntuBoost",
                 subTitle: "Optimize Your System",
                 introTitle: "Welcome to UbuntuBoost",
-                introText: "UbuntuBoost is your go-to solution for optimizing, securing, and maintaining your Ubuntu system. It’s designed to make your system run faster, smoother, and more securely.",
+                introText: "UbuntuBoost is your ultimate tool for optimizing, securing, and maintaining your Ubuntu system. It’s designed to make your system run faster, smoother, and more securely.",
                 featuresTitle: "Features",
                 featuresText: "With UbuntuBoost, you can:",
                 featuresList: [
                     "Update and upgrade your system",
-                    "Clean old files and kernels",
                     "Optimize CPU and memory settings",
                     "Enhance system security",
-                    "Configure swap and cache settings"
+                    "Configure swap and cache settings",
+                    "Interactive GUI for optimization"
                 ],
                 getStartedTitle: "Get Started",
-                getStartedText: "Ready to boost your Ubuntu system? Click the button below to start optimizing.",
+                getStartedText: "Ready to optimize your Ubuntu system? Click below to start the journey!",
                 optimizeButton: "Start Optimizing",
                 creditsTitle: "Credits",
                 creditsText: "Developed by Kevin Marville."
             },
             fr: {
-                title: "UbuntuBoost",
                 subTitle: "Optimisez Votre Système",
                 introTitle: "Bienvenue sur UbuntuBoost",
-                introText: "UbuntuBoost est votre solution idéale pour optimiser, sécuriser et entretenir votre système Ubuntu. Il est conçu pour rendre votre système plus rapide, plus fluide et plus sécurisé.",
+                introText: "UbuntuBoost est votre outil ultime pour optimiser, sécuriser et maintenir votre système Ubuntu. Il est conçu pour rendre votre système plus rapide, plus fluide et plus sécurisé.",
                 featuresTitle: "Fonctionnalités",
                 featuresText: "Avec UbuntuBoost, vous pouvez :",
                 featuresList: [
                     "Mettre à jour et améliorer votre système",
-                    "Nettoyer les anciens fichiers et noyaux",
                     "Optimiser les paramètres CPU et mémoire",
                     "Améliorer la sécurité du système",
-                    "Configurer les paramètres de swap et de cache"
+                    "Configurer les paramètres de swap et de cache",
+                    "Interface graphique interactive pour l'optimisation"
                 ],
                 getStartedTitle: "Commencer",
-                getStartedText: "Prêt à booster votre système Ubuntu ? Cliquez sur le bouton ci-dessous pour commencer l'optimisation.",
+                getStartedText: "Prêt à optimiser votre système Ubuntu ? Cliquez ci-dessous pour commencer !",
                 optimizeButton: "Commencer l'optimisation",
                 creditsTitle: "Crédits",
                 creditsText: "Développé par Kevin Marville."
             }
         };
 
+        // Switch Language Function
         function switchLanguage(lang) {
             document.getElementById('sub-title').textContent = translations[lang].subTitle;
             document.getElementById('intro-title').textContent = translations[lang].introTitle;
@@ -375,10 +252,15 @@
 
             const featuresList = document.getElementById('features-list');
             featuresList.innerHTML = "";
-            translations[lang].featuresList.forEach(item => {
+            translations[lang].featuresList.forEach((item, index) => {
                 const li = document.createElement('li');
                 li.textContent = item;
                 featuresList.appendChild(li);
+                // Math-based Animation: Delay each item based on exponential growth
+                setTimeout(() => {
+                    li.style.opacity = 1;
+                    li.style.transform = 'translateY(0)';
+                }, 100 * Math.exp(index * 0.1));  // Exponential delay
             });
 
             document.getElementById('get-started-title').textContent = translations[lang].getStartedTitle;
