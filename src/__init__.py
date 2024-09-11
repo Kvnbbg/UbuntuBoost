@@ -1,6 +1,7 @@
 import os
 import subprocess
 import sys
+import platform
 import logging
 
 # Configure logging
@@ -14,10 +15,10 @@ def validate_script_path(script_path):
     :return: bool - True if valid, False otherwise.
     """
     if not os.path.exists(script_path):
-        logger.warning(f"⚠ Script not found: {script_path}")
+        logger.warning(f"⚠️ Script not found: {script_path}")
         return False
     if not os.path.isfile(script_path):
-        logger.warning(f"⚠ Not a file: {script_path}")
+        logger.warning(f"⚠️ Not a file: {script_path}")
         return False
     return True
 
@@ -29,42 +30,48 @@ def execute_script(script_path):
     """
     if validate_script_path(script_path):
         try:
-            logger.info(f"Attempting to execute: {script_path}")
+            logger.info(f"⚙️ Attempting to execute: {script_path}")
             result = subprocess.run([sys.executable, script_path], check=True, capture_output=True, text=True)
             logger.info(f"✅ {os.path.basename(script_path)} executed successfully.")
-            logger.debug(f"Output:\n{result.stdout}")
+            logger.debug(f"📝 Output:\n{result.stdout}")
             return True
         except subprocess.CalledProcessError as e:
             logger.error(f"❌ Failed to execute {os.path.basename(script_path)}: {e.stderr}")
+            logger.info("💡 Tip: Ensure the script has the correct permissions and required dependencies.")
             return False
         except Exception as e:
             logger.error(f"❌ An unexpected error occurred while executing {os.path.basename(script_path)}: {e}")
+            logger.info("🔧 Troubleshooting: Check if the script path is correct or if there are missing dependencies.")
             return False
     return False
 
 def main():
     """
-    Main function to manage the execution of multiple scripts.
+    Main function to manage the execution of optimizers based on the OS.
+    It selects the correct script depending on the user's operating system.
     """
-    scripts = [
-        {"name": "Optimizer", "script": "Optimizer.py"},
-        {"name": "Mac Booster", "script": "MacBoost.sh"},
-        # Additional scripts can be added here
-    ]
+    system = platform.system()
+    logger.info(f"📋 Detected OS: {system}")
 
-    executed_any_script = False
+    if system == "Linux":
+        logger.info("🐧 Detected Linux (Ubuntu) system.")
+        script = "Optimizer.py"
+    elif system == "Darwin":
+        logger.info("🍎 Detected macOS system.")
+        script = "MacBoost.sh"
+    else:
+        logger.error(f"⚠️ Unsupported operating system: {system}. This script only supports Linux (Ubuntu) and macOS.")
+        sys.exit(1)
 
-    for entry in scripts:
-        script_path = os.path.join("src", entry["script"])
-        success = execute_script(script_path)
-        if success:
-            executed_any_script = True
-            break  # Stop after the first successful execution
+    script_path = os.path.join("src", script)
+    success = execute_script(script_path)
 
-    if not executed_any_script:
-        logger.error("⚠ No scripts were executed successfully. Please check the script names or paths.")
+    if not success:
+        logger.error(f"⚠️ Script execution failed: {script_path}")
+        logger.info("🔗 Tip: Visit https://support.com/troubleshooting for more help with script execution.")
 
     logger.info("🎉 Script execution management completed.")
 
 if __name__ == "__main__":
     main()
+
