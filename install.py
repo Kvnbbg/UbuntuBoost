@@ -5,6 +5,7 @@ import subprocess
 import sys
 import tkinter as tk
 from tkinter import messagebox
+import logging
 
 VENV_DIR = ".venv"
 MAX_RETRIES = 3
@@ -17,9 +18,13 @@ DEPENDENCIES = {
     "pyinstaller": 3,
 }
 
+# Configure logging
+logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
+logger = logging.getLogger(__name__)
+
 def print_status(message, emoji="ℹ️"):
     """Print status messages with an emoji."""
-    print(f"{emoji} {message}")
+    logger.info(f"{emoji} {message}")
 
 def check_command(command):
     """Check if a command exists on the system."""
@@ -46,6 +51,8 @@ def ensure_dependency_installed(dependency, install_command, description, altern
     if not check_command(dependency):
         print_status(f"{description} not found. Installing...", "🔍")
         execute_with_retries(install_command, f"{description} installation", alternative_method=alternative_method)
+    else:
+        print_status(f"{description} already installed.", "✅")
 
 def create_virtual_env():
     """Create and activate a virtual environment if it doesn't exist."""
@@ -82,7 +89,8 @@ def install_pygame():
             subprocess.check_call([sys.executable, "-m", "pip", "install", "--break-system-packages", "pygame"])
             print_status("Pygame installed successfully with --break-system-packages.", "✅")
         except subprocess.CalledProcessError as e:
-            print(f"Failed to install Pygame even with --break-system-packages: {str(e)}")
+            logger.error(f"Failed to install Pygame even with --break-system-packages: {str(e)}")
+            logger.info("💡 Tip: Visit https://www.pygame.org/wiki/GettingStarted for help.")
             sys.exit(1)
 
 def install_pyinstaller():
@@ -98,7 +106,8 @@ def install_pyinstaller():
             subprocess.check_call([sys.executable, "-m", "pip", "install", "--break-system-packages", "pyinstaller"])
             print_status("PyInstaller installed successfully with --break-system-packages.", "✅")
         except subprocess.CalledProcessError as e:
-            print(f"Failed to install PyInstaller even with --break-system-packages: {str(e)}")
+            logger.error(f"Failed to install PyInstaller even with --break-system-packages: {str(e)}")
+            logger.info("💡 Tip: Visit https://www.pyinstaller.org/ for help.")
             sys.exit(1)
 
 def install_dependencies_in_order():
@@ -131,6 +140,7 @@ def create_executable():
             os.chmod(dist_path, 0o755)
             print_status(f"Set executable permissions for {dist_path}.", "🔧")
     except subprocess.CalledProcessError as e:
+        logger.error(f"Failed to create the executable: {str(e)}")
         messagebox.showerror("Executable Creation Failed", f"Failed to create the executable: {str(e)}")
         sys.exit(1)
 
@@ -150,7 +160,8 @@ def main():
 
         print_status("Done.", "🎉")
     except Exception as e:
-        print_status(f"An error occurred: {str(e)}", "❌")
+        logger.error(f"An error occurred: {str(e)}")
+        logger.info("💡 Tip: Check https://support.com/installation for troubleshooting help.")
         sys.exit(1)
 
 def main_no_gui():
