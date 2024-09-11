@@ -48,26 +48,28 @@ def ensure_dependency_installed(dependency, install_command, description, altern
         execute_with_retries(install_command, f"{description} installation", alternative_method=alternative_method)
 
 def create_virtual_env():
-    """Create a virtual environment if it doesn't exist and activate it."""
+    """Create and activate a virtual environment if it doesn't exist."""
     if not os.path.exists(VENV_DIR):
         print_status("Creating virtual environment...", "🔧")
         subprocess.check_call([sys.executable, "-m", "venv", VENV_DIR])
+    
     activate_script = os.path.join(VENV_DIR, "bin", "activate")
     if platform.system() == "Windows":
         activate_script += ".bat"
+    
     print_status(f"Activating virtual environment: {activate_script}", "🔧")
     exec(open(activate_script).read(), dict(__file__=activate_script))
 
 def ensure_python_and_pip():
-    """Ensure Python3 and pip are installed."""
-    ensure_dependency_installed(
-        "python3",
-        "sudo apt install -y python3",
-        "Python3"
-    )
-    ensure_dependency_installed(
-        "pip3", "sudo apt install -y python3-pip", "pip3"
-    )
+    """Ensure Python3 and pip3 are installed depending on the operating system."""
+    system = platform.system()
+    
+    if system == "Darwin":  # macOS
+        ensure_dependency_installed("python3", "brew install python3", "Python3")
+        ensure_dependency_installed("pip3", "python3 -m ensurepip --upgrade", "pip3")
+    elif system == "Linux":
+        ensure_dependency_installed("python3", "sudo apt install -y python3", "Python3")
+        ensure_dependency_installed("pip3", "sudo apt install -y python3-pip", "pip3")
 
 def install_pygame():
     """Ensure Pygame is installed."""
@@ -119,27 +121,15 @@ def create_executable():
         subprocess.check_call(
             ["pyinstaller", "--onefile", "--windowed", "ubuntu_boost.py"]
         )
+        dist_path = os.path.join("dist", "ubuntu_boost")
         if system == "Windows":
-            print_status(
-                "Executable created for Windows (ubuntu_boost.exe) in the 'dist/' folder.",
-                "✅",
-            )
+            print_status("Executable created for Windows (ubuntu_boost.exe) in the 'dist/' folder.", "✅")
         elif system == "Darwin":
-            print_status(
-                "Executable created for macOS (ubuntu_boost.app) in the 'dist/' folder.",
-                "✅",
-            )
+            print_status("Executable created for macOS (ubuntu_boost.app) in the 'dist/' folder.", "✅")
         elif system == "Linux":
-            print_status(
-                "Executable created for Linux (ubuntu_boost) in the 'dist/' folder.",
-                "✅",
-            )
-
-        if system in ["Linux", "Darwin"]:
-            dist_path = os.path.join("dist", "ubuntu_boost")
-            if os.path.exists(dist_path):
-                os.chmod(dist_path, 0o755)
-                print_status(f"Set executable permissions for {dist_path}.", "🔧")
+            print_status("Executable created for Linux (ubuntu_boost) in the 'dist/' folder.", "✅")
+            os.chmod(dist_path, 0o755)
+            print_status(f"Set executable permissions for {dist_path}.", "🔧")
     except subprocess.CalledProcessError as e:
         messagebox.showerror("Executable Creation Failed", f"Failed to create the executable: {str(e)}")
         sys.exit(1)
@@ -175,15 +165,9 @@ def create_install_button():
         root.title("UbuntuBoost Installer")
 
         tk.Label(root, text="UbuntuBoost Installer", font=("Helvetica", 16)).pack(pady=10)
-        tk.Label(
-            root,
-            text="Press 'Install' to start the installation process.",
-            font=("Helvetica", 12),
-        ).pack(pady=5)
+        tk.Label(root, text="Press 'Install' to start the installation process.", font=("Helvetica", 12)).pack(pady=5)
 
-        install_button = tk.Button(
-            root, text="Install", command=main, width=20
-        )
+        install_button = tk.Button(root, text="Install", command=main, width=20)
         install_button.pack(pady=10)
 
         exit_button = tk.Button(root, text="Exit", command=root.quit, width=20)
