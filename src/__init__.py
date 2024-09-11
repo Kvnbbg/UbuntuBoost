@@ -47,8 +47,8 @@ def main():
     Main function to manage the execution of multiple scripts.
     """
     scripts = [
-        {"name": "Optimizer", "script": "run.py"},
-        {"name": "Sonic Pi", "script": "sonic_pi.py"},
+        {"name": "Optimizer", "script": "Optimizer.py"},
+        {"name": "Mac Booster", "script": "MacBoost.sh"},
         # Additional scripts can be added here
     ]
 
