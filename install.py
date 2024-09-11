@@ -166,7 +166,7 @@ def main():
 
 def main_no_gui():
     """Main function to run when no display is available."""
-    print_status("No GUI available. Running in non-GUI mode.", "🔧")
+    print_status("Oh no GUI unavailable! Running in non-GUI mode.", "🔧")
     main()
 
 # GUI Functionality to Add Install Button
